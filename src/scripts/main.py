@@ -10,7 +10,7 @@ def main(dataset_path: str,
          model_base_name: str, 
          model_name_version: str, 
          instruction: str,
-         cv: int = 5):
+         cv: int):
     
     dataset_name = get_last_element_from_path(dataset_path)
     result_path = f"results/{dataset_name}/{model_name_version}"
@@ -41,10 +41,10 @@ def main(dataset_path: str,
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process some parameters for model training.")
     
-    parser.add_argument("dataset_path", type=str, help="Path to the dataset CSV file.")
-    parser.add_argument("model_base_name", type=str, help="Base name of the model.")
-    parser.add_argument("model_name_version", type=str, help="Model name with version.")
-    parser.add_argument("instruction", type=str, help="Instruction for the model.")
+    parser.add_argument("--dataset_path", type=str, help="Path to the dataset CSV file.")
+    parser.add_argument("--model_base_name", type=str, help="Base name of the model.")
+    parser.add_argument("--model_name_version", type=str, help="Model name with version.")
+    parser.add_argument("--instruction", type=str, help="Instruction for the model.")
     parser.add_argument("--cv", type=int, default=5, help="Number of cross-validation folds (default: 5).")
     
     args = parser.parse_args()
