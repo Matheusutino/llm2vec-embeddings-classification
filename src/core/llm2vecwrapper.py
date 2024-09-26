@@ -14,7 +14,8 @@ class LLM2VecWrapper:
                  model_base_name: str, 
                  model_name_version: str, 
                  device: str = "cuda", 
-                 dtype = torch.bfloat16, 
+                #  dtype = torch.bfloat16, 
+                 dtype = torch.float16, 
                  pooling_mode: str = "mean", 
                  max_length: int = 512):
         """

@@ -1,5 +1,6 @@
 import argparse
 import pandas as pd
+import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import cross_validate
 from sklearn.metrics import make_scorer, accuracy_score, precision_score, recall_score, f1_score
@@ -34,7 +35,10 @@ def main(dataset_path: str,
 
     model = KNeighborsClassifier(n_neighbors=10, metric="cosine", n_jobs = -1)
 
-    cv_results = cross_validate(model, dataset["embeddings"], dataset["class"], cv=cv, scoring=scoring, n_jobs = -1)
+    X = np.array(dataset["embeddings"].tolist())
+    y = dataset["class"].tolist()
+
+    cv_results = cross_validate(model, X, y, cv=cv, scoring=scoring, n_jobs = -1)
 
     return cv_results
 
