@@ -1,7 +1,6 @@
 import numpy as np
 from typing import List, Dict, Any
 import llama_cpp
-from huggingface_hub import hf_hub_download
 
 class LlamaCppEmbeddings:
     """
@@ -22,8 +21,13 @@ class LlamaCppEmbeddings:
             filename (str): The filename of the model to download.
         """
         # Download the model file
-        self.model_path = hf_hub_download(repo_id=repo_id, filename=filename)
-        self.llm = llama_cpp.Llama(model_path=self.model_path, n_gpu_layers = -1, verbose = True, embedding=True)
+        self.llm = llama_cpp.Llama.from_pretrained(
+            repo_id = repo_id,
+            filename = filename,
+            n_gpu_layers = -1,
+            embedding = True
+        )
+
 
     def create_embeddings(self, texts: List[str]) -> List[Dict[str, Any]]:
         """
