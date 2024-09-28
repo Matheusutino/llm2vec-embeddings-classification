@@ -9,13 +9,12 @@ from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
 
-class LLM2VecWrapper:
+class LLM2VecEmbeddings:
     def __init__(self, 
                  model_base_name: str, 
                  model_name_version: str, 
-                 device: str = "cuda", 
-                #  dtype = torch.bfloat16, 
-                 dtype = torch.float16, 
+                 device: str = "cpu", 
+                 dtype = torch.bfloat16, 
                  pooling_mode: str = "mean", 
                  max_length: int = 512):
         """

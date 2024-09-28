@@ -4,27 +4,25 @@ import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import cross_validate
 from sklearn.metrics import make_scorer, accuracy_score, precision_score, recall_score, f1_score
-from src.core.llm2vecwrapper import LLM2VecWrapper
+from src.core.embeddings.bert import BertEmbeddings
 from src.core.utils import create_directory, get_last_element_from_path
+import torch
 
 def main(dataset_path: str, 
-         model_base_name: str, 
-         model_name_version: str, 
-         instruction: str,
+         model_name: str, 
          cv: int):
-    
+    torch.cuda.empty_cache()
     dataset_name = get_last_element_from_path(dataset_path)
-    result_path = f"results/{dataset_name}/{model_name_version}"
+    result_path = f"results/{dataset_name}/{model_name}"
     create_directory(result_path)
 
     dataset = pd.read_csv(dataset_path)
 
-    llm2vecwrapper = LLM2VecWrapper(model_base_name = model_base_name,
-                                    model_name_version = model_name_version)
+    bert_embeddings = BertEmbeddings(model_name=model_name)
     
-    embeddings = llm2vecwrapper.get_embeddings(instruction, dataset["text"].tolist())
+    embeddings = bert_embeddings.get_embeddings(dataset["text"].tolist())
 
-    dataset["embeddings"] = embeddings
+    dataset["embeddings"] = list(embeddings)
 
     scoring = {
         "accuracy": make_scorer(accuracy_score),
@@ -46,13 +44,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process some parameters for model training.")
     
     parser.add_argument("--dataset_path", type=str, help="Path to the dataset CSV file.")
-    parser.add_argument("--model_base_name", type=str, help="Base name of the model.")
-    parser.add_argument("--model_name_version", type=str, help="Model name with version.")
-    parser.add_argument("--instruction", type=str, help="Instruction for the model.")
+    parser.add_argument("--model_name", type=str, help="Base name of the model.")
     parser.add_argument("--cv", type=int, default=5, help="Number of cross-validation folds (default: 5).")
     
     args = parser.parse_args()
     
-    cv_results = main(args.dataset_path, args.model_base_name, args.model_name_version, args.instruction, args.cv)
+    cv_results = main(args.dataset_path, args.model_name, args.cv)
     
     print(cv_results)
