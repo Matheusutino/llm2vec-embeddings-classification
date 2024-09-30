@@ -1,5 +1,8 @@
 from sentence_transformers import SentenceTransformer
 from typing import List
+import os
+
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 class BertEmbeddings:
     def __init__(self, model_name: str, device: str = "cuda"):

@@ -1,6 +1,9 @@
 import numpy as np
 from typing import List, Dict, Any
 import llama_cpp
+from huggingface_hub import hf_hub_download
+from tqdm import tqdm
+from src.core.utils import get_value_by_key_json
 
 class LlamaCppEmbeddings:
     """
@@ -21,13 +24,9 @@ class LlamaCppEmbeddings:
             filename (str): The filename of the model to download.
         """
         # Download the model file
-        self.llm = llama_cpp.Llama.from_pretrained(
-            repo_id = repo_id,
-            filename = filename,
-            n_gpu_layers = -1,
-            embedding = True
-        )
-
+        n_ctx = get_value_by_key_json(file_path="configs/context_lenght.json", key = repo_id)
+        self.model_path = hf_hub_download(repo_id=repo_id, filename=filename)
+        self.llm = llama_cpp.Llama(model_path=self.model_path, n_ctx = n_ctx, n_gpu_layers = -1, verbose = True, embedding=True)
 
     def create_embeddings(self, texts: List[str]) -> List[Dict[str, Any]]:
         """
@@ -64,7 +63,10 @@ class LlamaCppEmbeddings:
         Returns:
             List[np.ndarray]: A list of aggregated sequence-level embeddings.
         """
-        embeddings = self.create_embeddings(texts)
+        embeddings = []
+        # Use tqdm for progress indication
+        for text in tqdm(texts, desc="Generating embeddings"):
+            embeddings.append(self.create_embeddings([text])[0])  # Get embedding for each text
         sequence_embeddings = [
             self.average_pooling(embedding_data['embedding']) 
             for embedding_data in embeddings

@@ -5,15 +5,15 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import cross_validate
 from sklearn.metrics import make_scorer, accuracy_score, precision_score, recall_score, f1_score
 from src.core.embeddings.bert import BertEmbeddings
-from src.core.utils import create_directory, get_last_element_from_path
-import torch
+from src.core.utils import create_directory, get_last_element_from_path, save_json, replace_character
+
 
 def main(dataset_path: str, 
          model_name: str, 
          cv: int):
-    torch.cuda.empty_cache()
+
     dataset_name = get_last_element_from_path(dataset_path)
-    result_path = f"results/{dataset_name}/{model_name}"
+    result_path = f"results/{dataset_name}/bert/{replace_character(model_name)}"
     create_directory(result_path)
 
     dataset = pd.read_csv(dataset_path)
@@ -36,10 +36,10 @@ def main(dataset_path: str,
     X = np.array(dataset["embeddings"].tolist())
     y = dataset["class"].tolist()
 
-    cv_results = cross_validate(model, X, y, cv=cv, scoring=scoring, n_jobs = -1)
+    cv_results = cross_validate(model, X, y, cv=cv, scoring=scoring, return_train_score = True, n_jobs = -1)
 
-    return cv_results
-
+    save_json(cv_results, f'{result_path}/results.json')
+    
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process some parameters for model training.")
     
@@ -49,6 +49,4 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
     
-    cv_results = main(args.dataset_path, args.model_name, args.cv)
-    
-    print(cv_results)
+    main(args.dataset_path, args.model_name, args.cv)
