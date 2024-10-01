@@ -49,3 +49,5 @@ results_df = load_results_to_dataframe(base_path)
 
 print("DataFrame de Resultados:")
 print(results_df)
+
+results_df.to_csv('test.csv')

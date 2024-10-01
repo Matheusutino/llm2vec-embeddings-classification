@@ -40,6 +40,19 @@ class LlamaCppEmbeddings:
         """
         return self.llm.create_embedding(texts)['data']
 
+    def max_pooling(self, token_embeddings: List[List[float]]) -> np.ndarray:
+        """
+        Computes the maximum of token-level embeddings to produce a sequence-level embedding.
+
+        Args:
+            token_embeddings (List[List[float]]): A list of embeddings for each token.
+
+        Returns:
+            np.ndarray: The max pooled embedding for the entire sequence.
+        """
+        token_embeddings_array = np.array(token_embeddings)
+        return np.max(token_embeddings_array, axis=0)
+
     def average_pooling(self, token_embeddings: List[List[float]]) -> np.ndarray:
         """
         Computes the average of token-level embeddings to produce a sequence-level embedding.
@@ -52,6 +65,20 @@ class LlamaCppEmbeddings:
         """
         token_embeddings_array = np.array(token_embeddings)
         return np.mean(token_embeddings_array, axis=0)
+
+    def concatenate_pooling(self, token_embeddings: List[List[float]]) -> np.ndarray:
+        """
+        Computes both average and max pooled embeddings and concatenates them.
+
+        Args:
+            token_embeddings (List[List[float]]): A list of embeddings for each token.
+
+        Returns:
+            np.ndarray: The concatenated embeddings from average and max pooling.
+        """
+        avg_embedding = self.average_pooling(token_embeddings)
+        max_embedding = self.max_pooling(token_embeddings)
+        return np.concatenate((avg_embedding, max_embedding))
 
     def aggregate_embeddings(self, texts: List[str]) -> List[np.ndarray]:
         """
