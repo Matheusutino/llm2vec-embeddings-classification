@@ -4,8 +4,9 @@ import llama_cpp
 from huggingface_hub import hf_hub_download
 from tqdm import tqdm
 from src.core.utils import get_value_by_key_json
+from src.core.embeddings.base_embeddings import BaseEmbeddings
 
-class LlamaCppEmbeddings:
+class LlamaCppEmbeddings(BaseEmbeddings):
     """
     A class to handle the generation and aggregation of token-level embeddings
     using LlamaCpp and manual pooling.
@@ -80,7 +81,7 @@ class LlamaCppEmbeddings:
         max_embedding = self.max_pooling(token_embeddings)
         return np.concatenate((avg_embedding, max_embedding))
 
-    def aggregate_embeddings(self, texts: List[str]) -> List[np.ndarray]:
+    def get_embeddings(self, texts: List[str]) -> List[np.ndarray]:
         """
         Generates and aggregates embeddings for a list of input texts.
 

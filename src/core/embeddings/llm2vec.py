@@ -6,10 +6,11 @@ from peft import PeftModel
 from typing import List
 from huggingface_hub import login
 from dotenv import load_dotenv, find_dotenv
+from src.core.embeddings.base_embeddings import BaseEmbeddings
 
 load_dotenv(find_dotenv())
 
-class LLM2VecEmbeddings:
+class LLM2VecEmbeddings(BaseEmbeddings):
     def __init__(self, 
                  model_base_name: str, 
                  model_name_version: str, 
