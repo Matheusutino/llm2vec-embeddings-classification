@@ -10,14 +10,24 @@
             "model_name": "sentence-transformers/all-MiniLM-L6-v2"
         }
     ],
+    "llama_cpp": [
+        {
+            "repo_id": "lmstudio-community/Llama-3.2-1B-Instruct-GGUF",
+            "filename": "Llama-3.2-1B-Instruct-Q4_K_M.gguf"
+        },
+        {
+            "repo_id": "lmstudio-community/Llama-3.2-3B-Instruct-GGUF",
+            "filename": "Llama-3.2-3B-Instruct-Q4_K_M.gguf"
+        },
+        {
+            "repo_id": "bartowski/Mistral-7B-Instruct-v0.3-GGUF",
+            "filename": "Mistral-7B-Instruct-v0.3-Q4_K_S.gguf"
+        }
+    ],
     "llm2vec": [
         {
             "model_base_name": "McGill-NLP/LLM2Vec-Meta-Llama-3-8B-Instruct-mntp",
             "model_name_version": "McGill-NLP/LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-supervised"
-        },
-        {
-            "model_base_name": "McGill-NLP/LLM2Vec-Meta-Llama-3-8B-Instruct-mntp",
-            "model_name_version": "McGill-NLP/LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-unsup-simcse"
         },
         {
             "model_base_name": "McGill-NLP/LLM2Vec-Meta-Llama-3-8B-Instruct-mntp",
