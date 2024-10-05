@@ -56,7 +56,7 @@ if __name__ == "__main__":
     parser.add_argument("--filename", type=str, help="Filename of the model (for LlamaCpp).", required=False)
     parser.add_argument("--model_base_name", type=str, help="Model Base Name for the model (for Llm2Vec).", required=False)
     parser.add_argument("--model_name_version", type=str, help="Model Name Version of the model (for Llm2Vec).", required=False)
-    parser.add_argument("--instruction", type=str, help="Instruction for LLM2Vec embeddings.", required=False)
+    parser.add_argument("--instruction", type=str, default = "Summarize and capture the main points of the text.", help="Instruction for LLM2Vec embeddings.", required=False)
     parser.add_argument("--cv", type=int, default=5, help="Number of cross-validation folds (default: 5).")
     
     args = parser.parse_args()
