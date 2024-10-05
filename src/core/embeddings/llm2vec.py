@@ -14,10 +14,10 @@ class LLM2VecEmbeddings(BaseEmbeddings):
     def __init__(self, 
                  model_base_name: str, 
                  model_name_version: str, 
-                 device: str = "cpu", 
+                 device: str = "cuda", 
                  dtype = torch.bfloat16, 
                  pooling_mode: str = "mean", 
-                 max_length: int = 512):
+                 max_length: int = 4096):
         """
         Initialize the model and tokenizer for LLM2Vec.
         """

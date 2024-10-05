@@ -16,7 +16,7 @@ class LlamaCppEmbeddings(BaseEmbeddings):
         model_path (str): Path to the Llama model file.
     """
 
-    def __init__(self, repo_id: str, filename: str):
+    def __init__(self, repo_id: str, filename: str, n_ctx: int = 512):
         """
         Initializes the EmbeddingAggregator by downloading the specified model.
 

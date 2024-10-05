@@ -9,7 +9,7 @@ from src.core.embeddings.embedding_generator import EmbeddingGenerator
 from src.core.utils import create_directory, get_last_element_from_path, save_json, replace_character
 
 
-def main(dataset_path: str, embedding_type: str, cv: int = 5, **kwargs):
+def run_classificator(dataset_path: str, embedding_type: str, cv: int = 5, **kwargs):
     dataset_name = get_last_element_from_path(dataset_path)
     result_path = f"results/{dataset_name}/{embedding_type}/{replace_character(kwargs.get('model_name') or kwargs.get('repo_id') or kwargs.get('model_name_version'))}"
     embeddings_file = f'{result_path}/embeddings.npy'
@@ -51,13 +51,15 @@ if __name__ == "__main__":
     parser.add_argument("--dataset_path", type=str, help="Path to the dataset CSV file.")
     parser.add_argument("--embedding_type", type=str, choices=['bert', 'llama_cpp', 'llm2vec'], 
                         help="Type of embedding to use: 'bert', 'llama_cpp', or 'llm2vec'.")
-    parser.add_argument("--model_name", type=str, help="Model name (for Bert or LLM2Vec).", required=False)
+    parser.add_argument("--model_name", type=str, help="Model name (for Bert).", required=False)
     parser.add_argument("--repo_id", type=str, help="Hugging Face repository ID (for LlamaCpp).", required=False)
-    parser.add_argument("--filename", type=str, help="Filename of the model (for LlamaCpp ou LLM2Vec).", required=False)
+    parser.add_argument("--filename", type=str, help="Filename of the model (for LlamaCpp).", required=False)
+    parser.add_argument("--model_base_name", type=str, help="Model Base Name for the model (for Llm2Vec).", required=False)
+    parser.add_argument("--model_name_version", type=str, help="Model Name Version of the model (for Llm2Vec).", required=False)
     parser.add_argument("--instruction", type=str, help="Instruction for LLM2Vec embeddings.", required=False)
     parser.add_argument("--cv", type=int, default=5, help="Number of cross-validation folds (default: 5).")
     
     args = parser.parse_args()
 
-    # Chamada do main com parâmetros explícitos
-    main(args.dataset_path, args.embedding_type, args.cv, model_name=args.model_name, repo_id=args.repo_id, filename=args.filename, instruction=args.instruction)
+    # Chamada do run_classificator com parâmetros explícitos
+    run_classificator(args.dataset_path, args.embedding_type, args.cv, model_name=args.model_name, repo_id=args.repo_id, filename=args.filename, model_base_name=args.model_base_name, model_name_version=args.model_name_version, instruction=args.instruction)

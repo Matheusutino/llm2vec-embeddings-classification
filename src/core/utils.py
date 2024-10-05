@@ -110,3 +110,23 @@ def replace_character(input_string: str, old_char: str = '/', new_char: str = '_
         '_home_user_documents_file.txt'
     """
     return input_string.replace(old_char, new_char)
+
+def get_all_files_in_directory(directory: str):
+    """
+    Retrieve all files in a specified directory.
+
+    Args:
+        directory (str): The path to the directory from which to retrieve files.
+
+    Returns:
+        list: A list of file paths in the specified directory.
+    """
+    files = []
+    try:
+        for filename in os.listdir(directory):
+            file_path = os.path.join(directory, filename)
+            if os.path.isfile(file_path):
+                files.append(file_path)
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    return files
