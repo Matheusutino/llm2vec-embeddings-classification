@@ -2,7 +2,7 @@ import argparse
 from src.core.utils import read_json, get_all_files_in_directory
 from src.scripts.run_classificator import run_classificator
 
-def run_all_models(models_path: str, datasets_path: str, cv: int):
+def run_all_models(models_path: str, datasets_path: str, cv: int, instruction: str):
     # Carregar os modelos do arquivo JSON
     models = read_json(models_path)
     datasets = get_all_files_in_directory(datasets_path)
@@ -24,7 +24,7 @@ def run_all_models(models_path: str, datasets_path: str, cv: int):
                 elif embedding_type == 'llm2vec':
                     model_base_name = model['model_base_name']
                     model_name_version = model['model_name_version']
-                    run_classificator(dataset, embedding_type, cv=cv, model_base_name=model_base_name, model_name_version=model_name_version)
+                    run_classificator(dataset, embedding_type, cv=cv, model_base_name=model_base_name, model_name_version=model_name_version, instruction=instruction)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process some parameters for model training.")
@@ -32,8 +32,9 @@ if __name__ == "__main__":
     parser.add_argument("--models_path", type=str, default= "configs/models_infos.json", help="Path to the JSON file containing model configurations.")
     parser.add_argument("--datasets_path", type=str, default= "datasets", help="Path to the dataset CSV file.")
     parser.add_argument("--cv", type=int, default=5, help="Number of cross-validation folds (default: 5).")
+    parser.add_argument("--instruction", type=str, default = "Summarize and capture the main points of the text.", help="Instruction for LLM2Vec embeddings.", required=False)
     
     args = parser.parse_args()
 
     # Chamada do run_all_models com os parâmetros fornecidos
-    run_all_models(args.models_path, args.datasets_path, cv=args.cv)
+    run_all_models(args.models_path, args.datasets_path, cv=args.cv, instruction=args.instruction)
