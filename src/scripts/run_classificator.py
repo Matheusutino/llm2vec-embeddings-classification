@@ -2,6 +2,7 @@ import argparse
 import time
 import pandas as pd
 import numpy as np
+from sys import getsizeof
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import cross_validate
 from sklearn.metrics import make_scorer, accuracy_score, precision_score, recall_score, f1_score
@@ -11,11 +12,6 @@ from src.core.utils import create_directory, get_last_element_from_path, save_js
 
 def run_classificator(dataset_path: str, embedding_type: str, cv: int = 5, **kwargs):
     dataset_name = get_last_element_from_path(dataset_path)
-    result_path = f"results/{dataset_name}/{embedding_type}/{replace_character(kwargs.get('model_name') or kwargs.get('repo_id') or kwargs.get('model_name_version'))}"
-    embeddings_file = f'{result_path}/embeddings.npy'
-
-    create_directory(result_path)
-
     dataset = pd.read_csv(dataset_path)
 
     embedding_generator = EmbeddingGenerator(embedding_type, **kwargs)
@@ -41,8 +37,11 @@ def run_classificator(dataset_path: str, embedding_type: str, cv: int = 5, **kwa
 
     cv_results = cross_validate(model, X, y, cv=cv, scoring=scoring, return_train_score=True, n_jobs=-1)
     cv_results["embedding_generation_time"] = embedding_generation_time
+    cv_results["embedding_generation_size"] = getsizeof(X)
 
-    np.save(embeddings_file, embeddings)
+    result_path = f"results/{dataset_name}/{embedding_type}/{replace_character(kwargs.get('model_name') or kwargs.get('repo_id') or kwargs.get('model_name_version'))}"
+
+    create_directory(result_path)
     save_json(cv_results, f'{result_path}/results.json')
 
 if __name__ == "__main__":
