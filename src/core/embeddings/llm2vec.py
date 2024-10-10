@@ -6,6 +6,7 @@ from peft import PeftModel
 from typing import List
 from huggingface_hub import login
 from dotenv import load_dotenv, find_dotenv
+from src.core.utils import get_value_by_key_json
 from src.core.embeddings.base_embeddings import BaseEmbeddings
 
 load_dotenv(find_dotenv())
@@ -26,7 +27,7 @@ class LLM2VecEmbeddings(BaseEmbeddings):
         self.model_name_version = model_name_version
         self.dtype = dtype
         self.pooling_mode = pooling_mode
-        self.max_length = max_length
+        self.max_length = get_value_by_key_json(file_path="configs/context_lenght.json", key = model_base_name)
 
         # Hugginface login
         login(os.environ.get("HUGGING_FACE_TOKEN"))

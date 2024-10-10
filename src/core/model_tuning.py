@@ -49,7 +49,7 @@ class ModelTuning:
         return scoring
 
 
-    def tune_hyperparameters(self, X: np.ndarray, y: np.ndarray, n_iter: int = 10, cv: int = 5, random_state: int = 42):
+    def tune_hyperparameters(self, X: np.ndarray, y: np.ndarray, metric_optmize = "f1_score", n_iter: int = 10, cv: int = 5, random_state: int = 42):
         bayes_search = BayesSearchCV(self.model, 
                                      self.param_grid, 
                                      n_iter=n_iter, 
@@ -57,7 +57,7 @@ class ModelTuning:
                                      scoring=self._select_scoring(), 
                                      random_state=random_state, 
                                      return_train_score=True, 
-                                     refit="f1_score",
+                                     refit=metric_optmize,
                                      n_jobs=-1)
         bayes_search.fit(X, y)
 
