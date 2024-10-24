@@ -1,6 +1,7 @@
 import os
 import json
 import numpy as np
+import pandas as pd
 from typing import Any, Union
 
 def create_directory(directory_path: str) -> bool:
@@ -130,3 +131,22 @@ def get_all_files_in_directory(directory: str):
     except Exception as e:
         print(f"An error occurred: {e}")
     return files
+
+def save_results(result_path, results, embedding_type, **kwargs):
+    bayesian_search_cv = pd.DataFrame(results.cv_results_)
+    bayesian_search_cv.to_csv(f"{result_path}/bayes_search_cv.csv", index=False)
+
+    best_f1_row = bayesian_search_cv.loc[bayesian_search_cv["mean_test_f1_score"].idxmax()]
+
+    best_f1_row["embedding_generation_time"] = kwargs.get("embedding_generation_time")
+    best_f1_row["embedding_generation_size"] = kwargs.get("embedding_generation_size")
+
+    if(embedding_type == "llama_cpp"):
+        best_f1_row["system_prompt"] = kwargs.get("system_prompt")
+        best_f1_row["user_prompt"] = kwargs.get("user_prompt")
+    elif(embedding_type == "llm2vec"):
+        best_f1_row["user_prompt"] = kwargs.get("user_prompt")
+
+
+    best_f1_row = best_f1_row.to_dict()
+    save_json(best_f1_row, f"{result_path}/results.json")
