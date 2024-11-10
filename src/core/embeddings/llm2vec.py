@@ -84,4 +84,4 @@ class LLM2VecEmbeddings(BaseEmbeddings):
 
         # Encode the text pairs into embeddings
         embeddings = self.l2v.encode(queries)
-        return list(embeddings.numpy())
+        return embeddings.numpy()

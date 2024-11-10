@@ -1,0 +1,111 @@
+dataset_name,model_type,model_name,classifier,prompt_name,mean_test_accuracy,mean_test_precision,mean_test_recall,mean_test_f1_score,embedding_generation_time,embedding_generation_size
+Dmoz-Computers.csv,bert,sentence-transformers_all-distilroberta-v1,knn,,0.7236842105263157,0.7190849562460666,0.7181666666666666,0.7081111725239212,4.272043704986572,29184128
+Dmoz-Computers.csv,bert,sentence-transformers_all-MiniLM-L6-v2,knn,,0.7288421052631578,0.7210156449970069,0.7236666666666667,0.7151106663430294,3.669557809829712,14592128
+Dmoz-Computers.csv,bert,sentence-transformers_all-MiniLM-L12-v2,knn,,0.7289473684210526,0.722361545102088,0.7222222222222222,0.7124603730426883,4.991891622543335,14592128
+Dmoz-Computers.csv,bert,sentence-transformers_all-mpnet-base-v2,knn,,0.7389473684210526,0.729568421047834,0.7333333333333333,0.7244802959081593,9.260680913925171,29184128
+Dmoz-Computers.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-supervised,knn,instruction_summary_prompt,0.7794736842105263,0.7776063464280654,0.7750000000000001,0.7690491800437551,41.05113434791565,128
+Dmoz-Computers.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-supervised,knn,instruction_classification_prompt,0.7610526315789474,0.7582883724934193,0.7567777777777778,0.749434841026476,69.35578227043152,128
+Dmoz-Computers.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-supervised,knn,base_prompt,0.7803157894736842,0.7769977505218084,0.775,0.7678186527140454,47.86794352531433,128
+Dmoz-Computers.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-unsup-simcse,knn,instruction_summary_prompt,0.7339999999999999,0.7337589673364249,0.7302222222222222,0.7235275152697358,40.95196175575256,128
+Dmoz-Computers.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-unsup-simcse,knn,instruction_classification_prompt,0.7363157894736841,0.7348309778618819,0.7328888888888889,0.7263125699777166,69.7227532863617,128
+Dmoz-Computers.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-unsup-simcse,knn,base_prompt,0.7349473684210526,0.7317097602778114,0.7309444444444445,0.7244249731707023,24.73744559288025,128
+Dmoz-Computers.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,knn,instruction_summary_prompt,0.7827368421052632,0.7854415398649278,0.7788333333333333,0.7718361477648725,130.05057859420776,128
+Dmoz-Computers.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,knn,instruction_classification_prompt,0.7814736842105263,0.7786218657139998,0.7781666666666667,0.7698080635322455,215.62362813949585,128
+Dmoz-Computers.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,knn,base_prompt,0.7878947368421052,0.7860185369237955,0.784888888888889,0.7771897430469914,76.67392325401306,128
+Dmoz-Computers.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-supervised,knn,instruction_summary_prompt,0.7756842105263158,0.7719433745499675,0.7712222222222221,0.7602105014271515,152.5060088634491,128
+Dmoz-Computers.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-supervised,knn,instruction_classification_prompt,0.7822105263157895,0.7804605894423542,0.7768888888888889,0.7657614155914947,258.42140460014343,128
+Dmoz-Computers.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-supervised,knn,base_prompt,0.7973684210526316,0.7981040687226157,0.7929444444444445,0.7829923197957522,131.42055130004883,128
+Dmoz-Computers.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-unsup-simcse,knn,instruction_summary_prompt,0.7902105263157895,0.7870847277524659,0.785611111111111,0.7780097165877011,153.13814496994019,128
+Dmoz-Computers.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-unsup-simcse,knn,instruction_classification_prompt,0.7910526315789473,0.7886880178362323,0.7867777777777778,0.778200952701468,258.5173571109772,128
+Dmoz-Computers.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-unsup-simcse,knn,base_prompt,0.7957894736842105,0.7938724574988748,0.792,0.7853469045511423,87.92671489715576,128
+Dmoz-Computers.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-supervised,knn,instruction_summary_prompt,0.7758947368421053,0.7745416499528879,0.7715555555555556,0.7634570412337738,139.69472932815552,128
+Dmoz-Computers.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-supervised,knn,instruction_classification_prompt,0.7727368421052632,0.7696066518036602,0.7673888888888889,0.7592080049240953,223.34566688537598,128
+Dmoz-Computers.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-supervised,knn,base_prompt,0.8092631578947369,0.8090316257838452,0.8041666666666666,0.7969758894550714,75.44118595123291,128
+Dmoz-Science.csv,bert,sentence-transformers_all-distilroberta-v1,knn,,0.7933333333333333,0.8011641111511073,0.7933333333333333,0.7912577871266298,4.378121852874756,18432128
+Dmoz-Science.csv,bert,sentence-transformers_all-MiniLM-L6-v2,knn,,0.8015000000000001,0.8089120441952129,0.8015000000000001,0.798931939618367,2.709428548812866,9216128
+Dmoz-Science.csv,bert,sentence-transformers_all-MiniLM-L12-v2,knn,,0.799,0.8066215064383639,0.7990000000000002,0.7959002458856153,2.609954595565796,9216128
+Dmoz-Science.csv,bert,sentence-transformers_all-mpnet-base-v2,knn,,0.8243333333333334,0.8284559840246061,0.8243333333333333,0.822381882555894,3.9782581329345703,18432128
+Dmoz-Science.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-supervised,knn,instruction_summary_prompt,0.8341666666666667,0.8399610871371287,0.8341666666666667,0.8311544340145499,32.556875467300415,128
+Dmoz-Science.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-supervised,knn,instruction_classification_prompt,0.8018333333333334,0.8141236207293587,0.8018333333333334,0.7970204225126173,47.388599157333374,128
+Dmoz-Science.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-supervised,knn,base_prompt,0.8276666666666668,0.8348315880661448,0.8276666666666668,0.8252279476991958,21.29721188545227,128
+Dmoz-Science.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-unsup-simcse,knn,instruction_summary_prompt,0.7686666666666666,0.7712065659810041,0.7686666666666666,0.7651309986358256,31.11159658432007,128
+Dmoz-Science.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-unsup-simcse,knn,instruction_classification_prompt,0.7648333333333333,0.7665497452865695,0.7648333333333334,0.760832898652385,49.41572165489197,128
+Dmoz-Science.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-unsup-simcse,knn,base_prompt,0.775,0.7776682693154489,0.775,0.7720833741528637,19.84826636314392,128
+Dmoz-Science.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,knn,instruction_summary_prompt,0.8123333333333334,0.8168194785622053,0.8123333333333334,0.8097010825320451,88.55175065994263,128
+Dmoz-Science.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,knn,instruction_classification_prompt,0.8138333333333334,0.8186940731710026,0.8138333333333334,0.8108000690154682,125.51487636566162,128
+Dmoz-Science.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,knn,base_prompt,0.8241666666666667,0.8285079603228706,0.8241666666666665,0.8217603631753395,51.42538523674011,128
+Dmoz-Science.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-supervised,knn,instruction_summary_prompt,0.8066666666666666,0.8134908107745691,0.8066666666666666,0.8020618535160313,111.32937049865723,128
+Dmoz-Science.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-supervised,knn,instruction_classification_prompt,0.8286666666666667,0.8345928030242392,0.8286666666666667,0.8260828791109021,154.04078650474548,128
+Dmoz-Science.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-supervised,knn,base_prompt,0.8320000000000001,0.8402178342013414,0.8320000000000001,0.8286919371100241,60.96975779533386,128
+Dmoz-Science.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-unsup-simcse,knn,instruction_summary_prompt,0.8168333333333333,0.822844770213045,0.8168333333333333,0.8138914734966575,117.91667866706848,128
+Dmoz-Science.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-unsup-simcse,knn,instruction_classification_prompt,0.833,0.8374978640301671,0.833,0.8302326665029962,171.94595527648926,128
+Dmoz-Science.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-unsup-simcse,knn,base_prompt,0.8208333333333334,0.8256381330695977,0.8208333333333334,0.8178593313679532,59.23364543914795,128
+Dmoz-Science.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-supervised,knn,instruction_summary_prompt,0.812,0.8211294866452038,0.8119999999999999,0.8081689437228701,100.92426109313965,128
+Dmoz-Science.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-supervised,knn,instruction_classification_prompt,0.8009999999999999,0.8102824705628983,0.8009999999999999,0.7963508795922698,140.88869047164917,128
+Dmoz-Science.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-supervised,knn,base_prompt,0.8525,0.8581165418071173,0.8524999999999998,0.850514238890627,57.13470649719238,128
+Industry Sector.csv,bert,sentence-transformers_all-distilroberta-v1,knn,,0.7823517684631047,0.7984107617501949,0.7414636731365801,0.7652270171431772,22.80685043334961,27085952
+Industry Sector.csv,bert,sentence-transformers_all-MiniLM-L6-v2,knn,,0.859589598743638,0.8645928614324909,0.8368329602220232,0.8492085878251625,10.41805386543274,13543040
+Industry Sector.csv,bert,sentence-transformers_all-MiniLM-L12-v2,knn,,0.8725190132774607,0.8953005282480294,0.8537361111977084,0.8727757593165777,10.266516923904419,13543040
+Industry Sector.csv,bert,sentence-transformers_all-mpnet-base-v2,knn,,0.8653728120100375,0.8844346342653513,0.844034229769918,0.8620465685560277,29.302974700927734,27085952
+Industry Sector.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-supervised,knn,instruction_summary_prompt,0.9049561212270879,0.9092204428627243,0.8931975802868319,0.9004682341912273,197.31545639038086,128
+Industry Sector.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-supervised,knn,instruction_classification_prompt,0.8827264390346798,0.9127563209343222,0.8615915791593602,0.884852267854472,188.77532291412354,128
+Industry Sector.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-supervised,knn,base_prompt,0.8986053071256863,0.9165225403532691,0.8825699946946459,0.8984458917370965,179.94261646270752,128
+Industry Sector.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-unsup-simcse,knn,instruction_summary_prompt,0.6765346637804299,0.6754831724413226,0.6166010557357057,0.6409647336368696,173.9917516708374,128
+Industry Sector.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-unsup-simcse,knn,instruction_classification_prompt,0.672678245054876,0.6764014267465669,0.6140477501965254,0.6394806171711728,197.9592535495758,128
+Industry Sector.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-unsup-simcse,knn,base_prompt,0.6800524898936697,0.6538305070955823,0.638149333583789,0.6439872154506638,157.6195673942566,128
+Industry Sector.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,knn,instruction_summary_prompt,0.7515036984731498,0.7622030642516867,0.7094066551632913,0.7314786057998834,544.0579755306244,128
+Industry Sector.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,knn,instruction_classification_prompt,0.7534320364561025,0.7639305583040463,0.7132825547198607,0.73494431323157,599.1002666950226,128
+Industry Sector.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,knn,base_prompt,0.756833782860847,0.771695088052586,0.7204394494839413,0.7421881503394459,488.2636659145355,128
+Industry Sector.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-supervised,knn,instruction_summary_prompt,0.9012127596359021,0.9070740193713028,0.8885732237642558,0.8967104046137562,588.8886487483978,128
+Industry Sector.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-supervised,knn,instruction_classification_prompt,0.9176588427013839,0.9234297769881167,0.908588758151738,0.9151039807701977,636.9678885936737,128
+Industry Sector.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-supervised,knn,base_prompt,0.9324047599754592,0.9367565817829616,0.9240072539108868,0.9298022620830526,565.9217255115509,128
+Industry Sector.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-unsup-simcse,knn,instruction_summary_prompt,0.7904053207594248,0.8009196169780696,0.7559509730456274,0.7756854907284361,581.4812009334564,128
+Industry Sector.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-unsup-simcse,knn,instruction_classification_prompt,0.7887034829057356,0.8043952105716615,0.7564088572358763,0.7775761567219248,634.7891974449158,128
+Industry Sector.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-unsup-simcse,knn,base_prompt,0.7839402919420746,0.796794039973878,0.7549071709845385,0.7732218781428462,519.7938361167908,128
+Industry Sector.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-supervised,knn,instruction_summary_prompt,0.9252594590492654,0.9229662949339386,0.9184488422002979,0.920020830298426,540.1013989448547,128
+Industry Sector.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-supervised,knn,instruction_classification_prompt,0.9144836607359904,0.9212152296172164,0.9046746846468713,0.9122148005609978,587.2142488956451,128
+Industry Sector.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-supervised,knn,base_prompt,0.9379621162134735,0.9407019904569525,0.9318473691582895,0.9356247314147954,512.5216119289398,128
+review_polarity.csv,bert,sentence-transformers_all-distilroberta-v1,knn,,0.6739999999999999,0.6815842440176784,0.674,0.6707798749506845,7.551675081253052,6144128
+review_polarity.csv,bert,sentence-transformers_all-MiniLM-L6-v2,knn,,0.6545,0.6574617199633418,0.6545,0.6527760065660206,4.566422462463379,3072128
+review_polarity.csv,bert,sentence-transformers_all-MiniLM-L12-v2,knn,,0.6335,0.6363953001219627,0.6335,0.6315924385511027,4.3113274574279785,3072128
+review_polarity.csv,bert,sentence-transformers_all-mpnet-base-v2,knn,,0.7089999999999999,0.7188100883696296,0.709,0.7058362382836972,10.306846141815186,6144128
+review_polarity.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-supervised,knn,instruction_summary_prompt,0.749,0.7657401364360202,0.749,0.7447260131051466,50.65907835960388,128
+review_polarity.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-supervised,knn,instruction_classification_prompt,0.7424999999999999,0.7501842756470805,0.7424999999999999,0.7404535349879918,50.58488202095032,128
+review_polarity.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-supervised,knn,base_prompt,0.7454999999999999,0.7522221870037606,0.7455,0.7437481042704811,47.36912679672241,128
+review_polarity.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-unsup-simcse,knn,instruction_summary_prompt,0.746,0.764921876790688,0.746,0.7412839585889749,50.57034683227539,128
+review_polarity.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-unsup-simcse,knn,instruction_classification_prompt,0.75,0.7613117376967703,0.75,0.7472086484273724,50.53913998603821,128
+review_polarity.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-unsup-simcse,knn,base_prompt,0.7415,0.7610965710707751,0.7415,0.7364786219894701,46.973843574523926,128
+review_polarity.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,knn,instruction_summary_prompt,0.764,0.7817813952535649,0.764,0.7601793411226098,160.10359907150269,128
+review_polarity.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,knn,instruction_classification_prompt,0.7605000000000001,0.7784736163520196,0.7605000000000001,0.7564936634760558,162.4569308757782,128
+review_polarity.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,knn,base_prompt,0.7615000000000001,0.7833669368073777,0.7615000000000001,0.7566768948408027,146.73853158950806,128
+review_polarity.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-supervised,knn,instruction_summary_prompt,0.844,0.8541889876748343,0.844,0.8428430128307104,162.42959928512573,128
+review_polarity.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-supervised,knn,instruction_classification_prompt,0.8504999999999999,0.8679684563237618,0.8504999999999999,0.8486021841585476,158.96054983139038,128
+review_polarity.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-supervised,knn,base_prompt,0.7955,0.8021721081617473,0.7955,0.7943748904372102,146.74045276641846,128
+review_polarity.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-unsup-simcse,knn,instruction_summary_prompt,0.7645,0.7856497934155227,0.7645,0.7599265924101177,162.44361782073975,128
+review_polarity.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-unsup-simcse,knn,instruction_classification_prompt,0.7769999999999999,0.790181170648334,0.7769999999999999,0.7743806205639154,158.88712978363037,128
+review_polarity.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-unsup-simcse,knn,base_prompt,0.7719999999999999,0.7873116171156207,0.7719999999999999,0.7688227061221765,147.02584981918335,128
+review_polarity.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-supervised,knn,instruction_summary_prompt,0.8165000000000001,0.821757095131385,0.8164999999999999,0.8156516461527152,218.69643878936768,128
+review_polarity.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-supervised,knn,instruction_classification_prompt,0.8435,0.8533144183079372,0.8435,0.8423904646048179,169.86200594902039,128
+review_polarity.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-supervised,knn,base_prompt,0.7985,0.8008639988685449,0.7985,0.7981204946710598,192.30873107910156,128
+NSF.csv,bert,sentence-transformers_all-distilroberta-v1,knn,,0.8721018668208051,0.8821646133500728,0.8672073689141166,0.8732351423272595,2.8033854961395264,32329856
+NSF.csv,bert,sentence-transformers_all-MiniLM-L6-v2,knn,,0.8751427436034067,0.8794585350792186,0.8687173149258433,0.8723736715158642,2.4572598934173584,16164992
+NSF.csv,bert,sentence-transformers_all-MiniLM-L12-v2,knn,,0.8807492571552432,0.8860676598531768,0.8759231902271576,0.8793609855965911,2.77135968208313,16164992
+NSF.csv,bert,sentence-transformers_all-mpnet-base-v2,knn,,0.8851193970539093,0.8890109661587932,0.8827501556122529,0.8848419964621025,3.7120583057403564,32329856
+NSF.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-supervised,knn,instruction_summary_prompt,0.8767586228696838,0.8842855778438853,0.8691404767800428,0.8748452390133744,43.59163570404053,128
+NSF.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-supervised,knn,instruction_classification_prompt,0.8602250661560833,0.8702434452943468,0.8493613222385965,0.8569307122157186,67.68599700927734,128
+NSF.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-supervised,knn,base_prompt,0.8697272021169946,0.8815594406668182,0.8605072396685362,0.8680894110465122,37.34393000602722,128
+NSF.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-unsup-simcse,knn,instruction_summary_prompt,0.8463511646180107,0.8481016860611149,0.837782948549828,0.8414964742327289,37.79615354537964,128
+NSF.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-unsup-simcse,knn,instruction_classification_prompt,0.8422661055065344,0.8432901485695845,0.831819858843075,0.8355676448192547,64.80677247047424,128
+NSF.csv,llm2vec,McGill-NLP_LLM2Vec-Sheared-LLaMA-mntp-unsup-simcse,knn,base_prompt,0.8494871887503048,0.849270036697255,0.8435605292518809,0.8449692478447949,19.131468534469604,128
+NSF.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,knn,instruction_summary_prompt,0.8893007324584774,0.8908411587746519,0.8858002304056161,0.8872058282563687,117.35027480125427,128
+NSF.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,knn,instruction_classification_prompt,0.8798941502668823,0.8845266345305449,0.873600869048482,0.8772856192550286,215.67961716651917,128
+NSF.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,knn,base_prompt,0.8942419822439781,0.8921789381400151,0.8898756789676098,0.89000250441741,60.6749005317688,128
+NSF.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-supervised,knn,instruction_summary_prompt,0.8797982803934141,0.8805334351746097,0.8748495753112474,0.8761193096778683,133.58211708068848,128
+NSF.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-supervised,knn,instruction_classification_prompt,0.8809388293308527,0.8847043718192509,0.876107402398751,0.87827351557771,237.7511444091797,128
+NSF.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-supervised,knn,base_prompt,0.8823639623203852,0.8872544177382833,0.8750333735617147,0.8790496960197733,79.21795749664307,128
+NSF.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-unsup-simcse,knn,instruction_summary_prompt,0.8840747631476749,0.8855843809004982,0.8780570955688015,0.8808321373382025,131.12822604179382,128
+NSF.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-unsup-simcse,knn,instruction_classification_prompt,0.8797034039901375,0.8731326758625247,0.8782433462684622,0.8748882069121958,239.3327350616455,128
+NSF.csv,llm2vec,McGill-NLP_LLM2Vec-Mistral-7B-Instruct-v2-mntp-unsup-simcse,knn,base_prompt,0.8803688483874172,0.8804519082661482,0.8742839890916965,0.8763489944857508,63.92033553123474,128
+NSF.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-supervised,knn,instruction_summary_prompt,0.8877804972769885,0.8941877839078837,0.8820742910995352,0.8862616100837218,137.54992651939392,128
+NSF.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-supervised,knn,instruction_classification_prompt,0.8760929075259882,0.8829228646908526,0.8686931358084603,0.8735479048028987,221.7289924621582,128
+NSF.csv,llm2vec,McGill-NLP_LLM2Vec-Meta-Llama-3-8B-Instruct-mntp-supervised,knn,base_prompt,0.8976628162170461,0.9047229143946958,0.8923924003600059,0.8957717735161326,55.14973998069763,128

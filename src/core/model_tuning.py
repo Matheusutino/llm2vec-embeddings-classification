@@ -1,8 +1,10 @@
 # model_selector.py
 import numpy as np
+from sklearn.model_selection import GridSearchCV
 from skopt import BayesSearchCV
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.ensemble import RandomForestClassifier  # Exemplo de outro modelo
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import LabelEncoder
 from sklearn.base import BaseEstimator
 from sklearn.metrics import make_scorer, accuracy_score, precision_score, recall_score, f1_score
 from typing import Dict, Union
@@ -27,7 +29,11 @@ class ModelTuning:
 
     def _select_hyperparameters(self) -> Dict[str, Union[str, int]]:
         if self.model_name == "knn":
-            param_grid = {'n_neighbors': [3, 5, 10, 15]}
+            param_grid = {
+                'n_neighbors': list(range(3, 51)),             
+                'metric': ['euclidean', 'manhattan', 'cosine'],  
+                'weights': ['uniform', 'distance']                 
+            }
         elif self.model_name == "random_forest":
             param_grid = {
                 'n_estimators': [50, 100, 200],
@@ -49,7 +55,9 @@ class ModelTuning:
         return scoring
 
 
-    def tune_hyperparameters(self, X: np.ndarray, y: np.ndarray, metric_optmize = "f1_score", n_iter: int = 10, cv: int = 5, random_state: int = 42):
+    def tune_hyperparameters(self, X: np.ndarray, y: np.ndarray, metric_optmize = "f1_score", n_iter: int = 20, cv: int = 5, random_state: int = 42):
+        label_encoder = LabelEncoder()
+        y = label_encoder.fit_transform(y)
         bayes_search = BayesSearchCV(self.model, 
                                      self.param_grid, 
                                      n_iter=n_iter, 
@@ -62,3 +70,19 @@ class ModelTuning:
         bayes_search.fit(X, y)
 
         return bayes_search
+
+    # def tune_hyperparameters(self, X: np.ndarray, y: np.ndarray, metric_optmize="f1_score", cv: int = 5):
+    #     label_encoder = LabelEncoder()
+    #     y = label_encoder.fit_transform(y)
+        
+    #     # Usando GridSearchCV no lugar de BayesSearchCV
+    #     grid_search = GridSearchCV(self.model, 
+    #                             self.param_grid, 
+    #                             cv=cv, 
+    #                             scoring=self._select_scoring(), 
+    #                             return_train_score=True, 
+    #                             refit=metric_optmize,
+    #                             n_jobs=-1)
+    #     grid_search.fit(X, y)
+
+    #     return grid_search

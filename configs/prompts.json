@@ -1,0 +1,14 @@
+{
+    "base_prompt":{
+        "system_prompt": "You are an intelligent assistant that follows the user’s instructions closely. Respond to the user's queries in a clear, concise, and helpful manner. Ensure that all answers are accurate, relevant, and tailored to the user's needs. Stay focused on providing valuable information and completing tasks as requested by the user.",
+        "user_prompt": ""
+    },
+    "instruction_summary_prompt":{
+        "system_prompt": "You are an intelligent assistant that follows the user’s instructions closely. Respond to the user's queries in a clear, concise, and helpful manner. Ensure that all answers are accurate, relevant, and tailored to the user's needs. Stay focused on providing valuable information and completing tasks as requested by the user.",
+        "user_prompt": "Please summarize the given text by identifying and highlighting the main points, key arguments, and any significant details. Provide a concise summary that captures the essential information and overall message of the text."
+    },
+    "instruction_classification_prompt":{
+        "system_prompt": "You are an intelligent assistant that follows the user’s instructions closely. Respond to the user's queries in a clear, concise, and helpful manner. Ensure that all answers are accurate, relevant, and tailored to the user's needs. Stay focused on providing valuable information and completing tasks as requested by the user.",
+        "user_prompt": "Please classify the given text into one of the following categories: {classes}. Analyze the content carefully and determine which category best represents the overall topic and message of the text."
+    }
+}

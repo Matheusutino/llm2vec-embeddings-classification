@@ -27,19 +27,12 @@ class LlamaCppEmbeddings(BaseEmbeddings):
         # Download the model file
         n_ctx = get_value_by_key_json(file_path="configs/context_lenght.json", key = repo_id)
         self.model_path = hf_hub_download(repo_id=repo_id, filename=filename)
-        self.llm = llama_cpp.Llama(model_path=self.model_path, n_ctx = n_ctx, n_gpu_layers = -1, verbose = True, embedding=True)
-
-    def create_embeddings(self, texts: List[str]) -> List[Dict[str, Any]]:
-        """
-        Generates embeddings for a list of input texts.
-
-        Args:
-            texts (List[str]): A list of strings for which to generate embeddings.
-
-        Returns:
-            List[Dict[str, Any]]: A list of dictionaries containing embeddings for each text.
-        """
-        return self.llm.create_embedding(texts)['data']
+        self.llm = llama_cpp.Llama(model_path = self.model_path, 
+                                   n_ctx = n_ctx, 
+                                   n_gpu_layers = -1, 
+                                #    verbose = True, 
+                                   pooling_type = llama_cpp.LLAMA_POOLING_TYPE_MEAN,
+                                   embedding=True)
 
     def max_pooling(self, token_embeddings: List[List[float]]) -> np.ndarray:
         """
@@ -83,7 +76,7 @@ class LlamaCppEmbeddings(BaseEmbeddings):
 
     def get_embeddings(self, texts: List[str]) -> List[np.ndarray]:
         """
-        Generates and aggregates embeddings for a list of input texts.
+        Generates and aggregates embeddings for a list of input texts, applying average pooling immediately.
 
         Args:
             texts (List[str]): A list of strings for which to generate and aggregate embeddings.
@@ -91,12 +84,30 @@ class LlamaCppEmbeddings(BaseEmbeddings):
         Returns:
             List[np.ndarray]: A list of aggregated sequence-level embeddings.
         """
+        # Initialize a list to store aggregated embeddings
+        # embeddings = []
+
+        # # Generate and aggregate embeddings for each text
+        # for text in tqdm(texts, desc="Generating embeddings"):
+        #     # Generate embedding data for the current text
+        #     embedding_data = self.llm.create_embedding(text)
+        #     print(np.array(embedding_data).shape)
+            
+        #     # Apply average pooling to the embedding and store the result
+        #     pooled_embedding = self.average_pooling(embedding_data['embedding'])
+        #     print(pooled_embedding.shape)
+        #     embeddings.append(pooled_embedding)
+
+        # return np.array(embeddings)
+
+        # texts = ["Hello, world!", "Goodbye, world!"]
+
         embeddings = []
-        # Use tqdm for progress indication
+
         for text in tqdm(texts, desc="Generating embeddings"):
-            embeddings.append(self.create_embeddings([text])[0])  # Get embedding for each text
-        sequence_embeddings = [
-            self.average_pooling(embedding_data['embedding']) 
-            for embedding_data in embeddings
-        ]
-        return sequence_embeddings
+            embedding = self.llm.embed(text)
+            embeddings.append(embedding)
+
+        return embeddings
+
+

@@ -6,7 +6,7 @@ from src.core.embeddings.base_embeddings import BaseEmbeddings
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 class BertEmbeddings(BaseEmbeddings):
-    def __init__(self, model_name: str, device: str = "cpu"):
+    def __init__(self, model_name: str, device: str = "cuda"):
         """
         Initialize the model for sentence embeddings using SentenceTransformer.
 
