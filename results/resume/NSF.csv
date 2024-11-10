@@ -1,0 +1,23 @@
+Tipo de Modelo,Nome do Modelo,Prompt,Acurácia,Precisão,Recall,F1 Score,Tempo de geração de embeddings
+llm2vec,Meta-Llama-3-8B-Instruct-mntp-supervised,BP,0.898,0.905,0.892,0.896,55.15
+llm2vec,Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,BP,0.894,0.892,0.89,0.89,60.675
+llm2vec,Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,ISP,0.889,0.891,0.886,0.887,117.35
+llm2vec,Meta-Llama-3-8B-Instruct-mntp-supervised,ISP,0.888,0.894,0.882,0.886,137.55
+bert,all-mpnet-base-v2,-,0.885,0.889,0.883,0.885,3.712
+llm2vec,Mistral-7B-Instruct-v2-mntp-unsup-simcse,ISP,0.884,0.886,0.878,0.881,131.128
+bert,all-MiniLM-L12-v2,-,0.881,0.886,0.876,0.879,2.771
+llm2vec,Mistral-7B-Instruct-v2-mntp-supervised,BP,0.882,0.887,0.875,0.879,79.218
+llm2vec,Mistral-7B-Instruct-v2-mntp-supervised,ICP,0.881,0.885,0.876,0.878,237.751
+llm2vec,Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,ICP,0.88,0.885,0.874,0.877,215.68
+llm2vec,Mistral-7B-Instruct-v2-mntp-unsup-simcse,BP,0.88,0.88,0.874,0.876,63.92
+llm2vec,Mistral-7B-Instruct-v2-mntp-supervised,ISP,0.88,0.881,0.875,0.876,133.582
+llm2vec,Mistral-7B-Instruct-v2-mntp-unsup-simcse,ICP,0.88,0.873,0.878,0.875,239.333
+llm2vec,Sheared-LLaMA-mntp-supervised,ISP,0.877,0.884,0.869,0.875,43.592
+llm2vec,Meta-Llama-3-8B-Instruct-mntp-supervised,ICP,0.876,0.883,0.869,0.874,221.729
+bert,all-distilroberta-v1,-,0.872,0.882,0.867,0.873,2.803
+bert,all-MiniLM-L6-v2,-,0.875,0.879,0.869,0.872,2.457
+llm2vec,Sheared-LLaMA-mntp-supervised,BP,0.87,0.882,0.861,0.868,37.344
+llm2vec,Sheared-LLaMA-mntp-supervised,ICP,0.86,0.87,0.849,0.857,67.686
+llm2vec,Sheared-LLaMA-mntp-unsup-simcse,BP,0.849,0.849,0.844,0.845,19.131
+llm2vec,Sheared-LLaMA-mntp-unsup-simcse,ISP,0.846,0.848,0.838,0.841,37.796
+llm2vec,Sheared-LLaMA-mntp-unsup-simcse,ICP,0.842,0.843,0.832,0.836,64.807

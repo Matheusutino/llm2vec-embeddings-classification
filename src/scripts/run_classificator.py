@@ -10,7 +10,7 @@ from src.core.utils import create_directory, get_last_element_from_path, replace
 def run_classificator(dataset_path: str, embedding_type: str, model_classifier: str, cv: int, **kwargs):
     dataset_name = get_last_element_from_path(dataset_path)
     
-    result_path = f"results/{dataset_name}/{embedding_type}/{replace_character(kwargs.get('model_name') or kwargs.get('repo_id') or kwargs.get('model_name_version'))}{f'/{kwargs.get('prompt_name')}/' if embedding_type != 'bert' else ''}/{model_classifier}"
+    result_path = f"results/{dataset_name}/{embedding_type}/{replace_character(kwargs.get('model_name') or kwargs.get('repo_id') or kwargs.get('model_name_version'))}{f'/{kwargs.get('prompt_name')}' if embedding_type != 'bert' else ''}/{model_classifier}"
     create_directory(result_path)
 
     dataset = pd.read_csv(dataset_path)
