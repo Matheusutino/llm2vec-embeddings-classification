@@ -16,7 +16,7 @@ class LlamaCppEmbeddings(BaseEmbeddings):
         model_path (str): Path to the Llama model file.
     """
 
-    def __init__(self, repo_id: str, filename: str, n_ctx: int = 512):
+    def __init__(self, repo_id: str, filename: str, n_ctx: int = 512, verbose: bool = False):
         """
         Initializes the EmbeddingAggregator by downloading the specified model.
 
@@ -30,9 +30,9 @@ class LlamaCppEmbeddings(BaseEmbeddings):
         self.llm = llama_cpp.Llama(model_path = self.model_path, 
                                    n_ctx = n_ctx, 
                                    n_gpu_layers = -1, 
-                                #    verbose = True, 
                                    pooling_type = llama_cpp.LLAMA_POOLING_TYPE_MEAN,
-                                   embedding=True)
+                                   embedding = True,
+                                   verbose = verbose)
 
     def max_pooling(self, token_embeddings: List[List[float]]) -> np.ndarray:
         """

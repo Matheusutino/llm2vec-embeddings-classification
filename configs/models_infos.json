@@ -1,36 +1,4 @@
 {
-    "bert": [
-        {
-            "model_name": "sentence-transformers/all-mpnet-base-v2"
-        },
-        {
-            "model_name": "sentence-transformers/all-MiniLM-L12-v2"
-        },
-        {
-            "model_name": "sentence-transformers/all-MiniLM-L6-v2"
-        },
-        {
-            "model_name": "sentence-transformers/all-distilroberta-v1"
-        }
-    ],
-    "llama_cpp": [
-        {
-            "repo_id": "SanctumAI/gemma-2-9b-it-GGUF",
-            "filename": "gemma-2-9b-it.Q8_0.gguf"
-        },
-        {
-            "repo_id": "lmstudio-community/Llama-3.2-1B-Instruct-GGUF",
-            "filename": "Llama-3.2-1B-Instruct-Q8_0.gguf"
-        },
-        {
-            "repo_id": "lmstudio-community/Llama-3.2-3B-Instruct-GGUF",
-            "filename": "Llama-3.2-3B-Instruct-Q8_0.gguf"
-        },
-        {
-            "repo_id": "bartowski/Mistral-7B-Instruct-v0.3-GGUF",
-            "filename": "Mistral-7B-Instruct-v0.3-Q8_0.gguf"
-        }
-    ],
     "llm2vec": [
         {
             "model_base_name": "McGill-NLP/LLM2Vec-Meta-Llama-3-8B-Instruct-mntp",
@@ -56,5 +24,41 @@
             "model_base_name": "McGill-NLP/LLM2Vec-Sheared-LLaMA-mntp",
             "model_name_version": "McGill-NLP/LLM2Vec-Sheared-LLaMA-mntp-unsup-simcse"
         }
-    ]  
+    ],
+    "llama_cpp": [
+        {
+            "repo_id": "bartowski/aya-expanse-8b-GGUF",
+            "filename": "aya-expanse-8b-Q8_0.gguf"
+        },
+        {
+            "repo_id": "SanctumAI/gemma-2-9b-it-GGUF",
+            "filename": "gemma-2-9b-it.Q8_0.gguf"
+        },
+        {
+            "repo_id": "bartowski/Phi-3.5-mini-instruct-GGUF",
+            "filename": "Phi-3.5-mini-instruct-Q8_0.gguf"
+        },
+        {
+            "repo_id": "lmstudio-community/Llama-3.2-3B-Instruct-GGUF",
+            "filename": "Llama-3.2-3B-Instruct-Q8_0.gguf"
+        },
+        {
+            "repo_id": "bartowski/Mistral-Nemo-Instruct-2407-GGUF",
+            "filename": "Mistral-Nemo-Instruct-2407-Q8_0.gguf"
+        }
+    ],
+    "bert": [
+        {
+            "model_name": "sentence-transformers/all-mpnet-base-v2"
+        },
+        {
+            "model_name": "sentence-transformers/all-MiniLM-L12-v2"
+        },
+        {
+            "model_name": "sentence-transformers/all-MiniLM-L6-v2"
+        },
+        {
+            "model_name": "sentence-transformers/all-distilroberta-v1"
+        }
+    ]
 }

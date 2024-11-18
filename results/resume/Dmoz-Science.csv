@@ -18,6 +18,12 @@ llm2vec,Sheared-LLaMA-mntp-supervised,ICP,0.802,0.814,0.802,0.797,47.389
 llm2vec,Meta-Llama-3-8B-Instruct-mntp-supervised,ICP,0.801,0.81,0.801,0.796,140.889
 bert,all-MiniLM-L12-v2,-,0.799,0.807,0.799,0.796,2.61
 bert,all-distilroberta-v1,-,0.793,0.801,0.793,0.791,4.378
+llama_cpp,SanctumAI_gemma-2-9b-it-GGUF,ICP,0.775,0.791,0.775,0.773,233.486
 llm2vec,Sheared-LLaMA-mntp-unsup-simcse,BP,0.775,0.778,0.775,0.772,19.848
 llm2vec,Sheared-LLaMA-mntp-unsup-simcse,ISP,0.769,0.771,0.769,0.765,31.112
 llm2vec,Sheared-LLaMA-mntp-unsup-simcse,ICP,0.765,0.767,0.765,0.761,49.416
+llama_cpp,SanctumAI_gemma-2-9b-it-GGUF,BP,0.75,0.76,0.75,0.747,197.478
+llama_cpp,SanctumAI_gemma-2-9b-it-GGUF,ISP,0.743,0.76,0.743,0.739,214.683
+llama_cpp,bartowski_aya-expanse-8b-GGUF,ICP,0.083,0.007,0.083,0.013,197.859
+llama_cpp,bartowski_aya-expanse-8b-GGUF,BP,0.083,0.007,0.083,0.013,165.239
+llama_cpp,bartowski_aya-expanse-8b-GGUF,ISP,0.083,0.007,0.083,0.013,181.245

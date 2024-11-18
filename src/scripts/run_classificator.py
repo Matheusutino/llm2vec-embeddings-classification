@@ -36,9 +36,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process some parameters for model training.")
     
     parser.add_argument("--dataset_path", type=str, help="Path to the dataset CSV file.")
-    parser.add_argument("--embedding_type", type=str, choices=["bert", "llama_cpp", "llm2vec"], 
+    parser.add_argument("--embedding_type", type=str, choices=["bert", "llama_cpp", "ollama", "llm2vec"], 
                         help="Type of embedding to use: 'bert', 'llama_cpp', or 'llm2vec'.")
-    parser.add_argument("--model_name", type=str, help="Model name (for Bert).", required=False)
+    parser.add_argument("--model_name", type=str, help="Model name (for Bert and Ollama).", required=False)
     parser.add_argument("--repo_id", type=str, help="Hugging Face repository ID (for LlamaCpp).", required=False)
     parser.add_argument("--filename", type=str, help="Filename of the model (for LlamaCpp).", required=False)
     parser.add_argument("--model_base_name", type=str, help="Model Base Name for the model (for Llm2Vec).", required=False)

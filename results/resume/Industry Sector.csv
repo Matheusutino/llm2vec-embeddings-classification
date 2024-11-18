@@ -18,6 +18,12 @@ bert,all-distilroberta-v1,-,0.782,0.798,0.741,0.765,22.807
 llm2vec,Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,BP,0.757,0.772,0.72,0.742,488.264
 llm2vec,Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,ICP,0.753,0.764,0.713,0.735,599.1
 llm2vec,Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,ISP,0.752,0.762,0.709,0.731,544.058
+llama_cpp,SanctumAI_gemma-2-9b-it-GGUF,ISP,0.716,0.736,0.66,0.69,543.646
+llama_cpp,SanctumAI_gemma-2-9b-it-GGUF,ICP,0.708,0.762,0.634,0.683,562.283
+llama_cpp,SanctumAI_gemma-2-9b-it-GGUF,BP,0.701,0.754,0.629,0.676,542.361
 llm2vec,Sheared-LLaMA-mntp-unsup-simcse,BP,0.68,0.654,0.638,0.644,157.62
 llm2vec,Sheared-LLaMA-mntp-unsup-simcse,ISP,0.677,0.675,0.617,0.641,173.992
 llm2vec,Sheared-LLaMA-mntp-unsup-simcse,ICP,0.673,0.676,0.614,0.639,197.959
+llama_cpp,bartowski_aya-expanse-8b-GGUF,ICP,0.108,0.064,0.092,0.02,287.483
+llama_cpp,bartowski_aya-expanse-8b-GGUF,ISP,0.107,0.01,0.091,0.018,295.767
+llama_cpp,bartowski_aya-expanse-8b-GGUF,BP,0.107,0.01,0.091,0.018,241.634

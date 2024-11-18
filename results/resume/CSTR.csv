@@ -1,0 +1,11 @@
+Tipo de Modelo,Nome do Modelo,Prompt,Acurácia,Precisão,Recall,F1 Score,Tempo de geração de embeddings
+bert,all-mpnet-base-v2,-,0.896,0.917,0.92,0.914,2.318
+bert,all-distilroberta-v1,-,0.893,0.907,0.918,0.909,2.011
+llama_cpp,SanctumAI_gemma-2-9b-it-GGUF,BP,0.876,0.903,0.9,0.898,23.307
+bert,all-MiniLM-L12-v2,-,0.87,0.898,0.899,0.896,1.778
+llama_cpp,SanctumAI_gemma-2-9b-it-GGUF,ICP,0.866,0.898,0.89,0.89,19.305
+llama_cpp,SanctumAI_gemma-2-9b-it-GGUF,ISP,0.856,0.891,0.884,0.884,18.994
+bert,all-MiniLM-L6-v2,-,0.869,0.881,0.893,0.883,1.787
+llama_cpp,bartowski_aya-expanse-8b-GGUF,ISP,0.428,0.107,0.25,0.15,10.476
+llama_cpp,bartowski_aya-expanse-8b-GGUF,ICP,0.428,0.107,0.25,0.15,10.633
+llama_cpp,bartowski_aya-expanse-8b-GGUF,BP,0.428,0.107,0.25,0.15,14.614

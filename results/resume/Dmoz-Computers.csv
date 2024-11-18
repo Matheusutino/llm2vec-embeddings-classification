@@ -21,3 +21,5 @@ llm2vec,Sheared-LLaMA-mntp-unsup-simcse,ISP,0.734,0.734,0.73,0.724,40.952
 bert,all-MiniLM-L6-v2,-,0.729,0.721,0.724,0.715,3.67
 bert,all-MiniLM-L12-v2,-,0.729,0.722,0.722,0.712,4.992
 bert,all-distilroberta-v1,-,0.724,0.719,0.718,0.708,4.272
+llama_cpp,bartowski_aya-expanse-8b-GGUF,ISP,0.053,0.003,0.056,0.006,369.616
+llama_cpp,bartowski_aya-expanse-8b-GGUF,BP,0.053,0.003,0.056,0.006,260.664

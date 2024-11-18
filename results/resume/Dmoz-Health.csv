@@ -1,0 +1,5 @@
+Tipo de Modelo,Nome do Modelo,Prompt,Acurácia,Precisão,Recall,F1 Score,Tempo de geração de embeddings
+bert,all-mpnet-base-v2,-,0.881,0.882,0.881,0.88,6.436
+bert,all-MiniLM-L12-v2,-,0.873,0.873,0.873,0.872,4.156
+bert,all-MiniLM-L6-v2,-,0.871,0.871,0.871,0.87,4.138
+bert,all-distilroberta-v1,-,0.863,0.863,0.863,0.861,5.279

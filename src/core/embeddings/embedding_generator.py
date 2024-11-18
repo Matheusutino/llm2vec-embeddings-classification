@@ -1,5 +1,6 @@
 from src.core.embeddings.bert import BertEmbeddings
 from src.core.embeddings.llama_cpp import LlamaCppEmbeddings
+from src.core.embeddings.ollama import OllamaEmbeddings
 from src.core.embeddings.llm2vec import LLM2VecEmbeddings
 from src.core.prompt_generator import PromptGenerator
 
@@ -43,6 +44,8 @@ class EmbeddingGenerator:
             return self._generate_bert_embeddings(dataset)
         elif self.embedding_type == "llama_cpp":
             return self._generate_llama_cpp_embeddings(dataset)
+        elif self.embedding_type == "ollama":
+            return self._generate_ollama_embeddings(dataset)
         elif self.embedding_type == "llm2vec":
             return self._generate_llm2vec_embeddings(dataset)
         else:
@@ -77,7 +80,7 @@ class EmbeddingGenerator:
         system_prompt = self.kwargs.get("system_prompt")
         user_prompt = self.kwargs.get("user_prompt")
         dataset["text"] = dataset["text"].apply(
-            lambda text: PromptGenerator.generate_prompt(
+            lambda text: PromptGenerator.generate_prompt_llama_cpp(
                 repo_id=repo_id, 
                 system_prompt=system_prompt, 
                 user_prompt=user_prompt.format(classes=dataset['class'].unique().tolist()), 
@@ -86,6 +89,31 @@ class EmbeddingGenerator:
         )
 
         llama_cpp_embeddings = LlamaCppEmbeddings(repo_id=repo_id, filename=filename)
+        return llama_cpp_embeddings.get_embeddings(dataset["text"].tolist())
+
+    def _generate_ollama_embeddings(self, dataset):
+        """
+        Generates embeddings using the Ollama model.
+
+        Args:
+            dataset (pd.DataFrame): The dataset containing text data for embedding generation.
+
+        Returns:
+            np.ndarray: A list of Ollama embeddings.
+        """
+        model_name = self.kwargs.get("model_name")
+        system_prompt = self.kwargs.get("system_prompt")
+        user_prompt = self.kwargs.get("user_prompt")
+
+        dataset["text"] = dataset["text"].apply(
+            lambda text: PromptGenerator.generate_prompt_ollama(
+                system_prompt=system_prompt, 
+                user_prompt=user_prompt.format(classes=dataset['class'].unique().tolist()), 
+                text=text
+            )
+        )
+
+        llama_cpp_embeddings = OllamaEmbeddings(model_name=model_name)
         return llama_cpp_embeddings.get_embeddings(dataset["text"].tolist())
 
     def _generate_llm2vec_embeddings(self, dataset):

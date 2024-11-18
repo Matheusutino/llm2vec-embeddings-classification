@@ -5,19 +5,14 @@ from src.scripts.run_classificator import run_classificator
 def run_all_models(models_path: str, prompt_path : str, datasets_path: str, model_classifier:str, cv: int, system_prompt: str, user_prompt: str):
     models = read_json(models_path)
     prompts = read_json(prompt_path)
-    # datasets = get_all_files_in_directory(datasets_path)
-
-    datasets = ['datasets/Dmoz-Computers.csv',
-                'datasets/Dmoz-Science.csv',
-                'datasets/Industry Sector.csv',
-                'datasets/review_polarity.csv',
-                'datasets/NSF.csv']
+    datasets = get_all_files_in_directory(datasets_path)
     
-
-    for dataset in datasets:
-        for embedding_type, model_list in models.items():
-            for model in model_list:
+    for embedding_type in sorted(models.keys(), reverse=True):
+        model_list = models[embedding_type]
+        for model in model_list:
+            for dataset in datasets:
                 for prompt_name, prompt in prompts.items():
+                    print(f"Run model {model}")
                     try:
                         if embedding_type == 'bert':
                             model_name = model['model_name']
