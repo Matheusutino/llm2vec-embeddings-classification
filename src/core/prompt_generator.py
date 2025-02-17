@@ -12,10 +12,10 @@ class PromptGenerator:
             prompt = f"<|start_header_id|>{system_prompt}<|end_header_id|><|eot_id|><|start_header_id|>{user_prompt}\n{text}<|end_header_id|><|eot_id|><|start_header_id|>assistant<|end_header_id|>"
         elif repo_id == "bartowski/Mistral-Nemo-Instruct-2407-GGUF":
             prompt = f"<s>[INST]{system_prompt}\n{user_prompt}\n{text}[/INST]</s>"
-        elif repo_id == "MaziyarPanahi/Qwen2.5-7B-Instruct-GGUF":
-            prompt = f"<|im_start|>system{system_prompt}<|im_end|><|im_start|>user{user_prompt}\n{text}<|im_end|><|im_start|>assistant"
+        elif repo_id == "bartowski/Qwen2.5-7B-Instruct-GGUF":
+            prompt = f"<|im_start|>system\n{system_prompt}<|im_end|>\n<|im_start|>user\n{user_prompt}\n{text}<|im_end|>\n<|im_start|>assistant"
         elif repo_id == "bartowski/aya-expanse-8b-GGUF":
-            prompt = f"<BOS_TOKEN><|START_OF_TURN_TOKEN|><|SYSTEM_TOKEN|>{system_prompt}<|END_OF_TURN_TOKEN|><|START_OF_TURN_TOKEN|><|USER_TOKEN|>{user_prompt}<|END_OF_TURN_TOKEN|><|START_OF_TURN_TOKEN|><|CHATBOT_TOKEN|><|END_OF_TURN_TOKEN|><|START_OF_TURN_TOKEN|><|CHATBOT_TOKEN|>"
+            prompt = f"<BOS_TOKEN><|START_OF_TURN_TOKEN|><|SYSTEM_TOKEN|>{system_prompt}<|END_OF_TURN_TOKEN|><|START_OF_TURN_TOKEN|><|USER_TOKEN|>{user_prompt}\n{text}<|END_OF_TURN_TOKEN|><|START_OF_TURN_TOKEN|><|CHATBOT_TOKEN|><|END_OF_TURN_TOKEN|><|START_OF_TURN_TOKEN|><|CHATBOT_TOKEN|>"
 
         return prompt
 

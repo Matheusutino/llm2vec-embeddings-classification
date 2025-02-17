@@ -3,6 +3,7 @@ from src.core.embeddings.llama_cpp import LlamaCppEmbeddings
 from src.core.embeddings.ollama import OllamaEmbeddings
 from src.core.embeddings.llm2vec import LLM2VecEmbeddings
 from src.core.prompt_generator import PromptGenerator
+from src.core.utils import get_prompt
 
 class EmbeddingGenerator:
     """
@@ -77,8 +78,8 @@ class EmbeddingGenerator:
         """
         repo_id = self.kwargs.get("repo_id")
         filename = self.kwargs.get("filename")
-        system_prompt = self.kwargs.get("system_prompt")
-        user_prompt = self.kwargs.get("user_prompt")
+        system_prompt, user_prompt = get_prompt(self.kwargs.get("prompt_name"))
+
         dataset["text"] = dataset["text"].apply(
             lambda text: PromptGenerator.generate_prompt_llama_cpp(
                 repo_id=repo_id, 
@@ -102,8 +103,7 @@ class EmbeddingGenerator:
             np.ndarray: A list of Ollama embeddings.
         """
         model_name = self.kwargs.get("model_name")
-        system_prompt = self.kwargs.get("system_prompt")
-        user_prompt = self.kwargs.get("user_prompt")
+        system_prompt, user_prompt = get_prompt(self.kwargs.get("prompt_name"))
 
         dataset["text"] = dataset["text"].apply(
             lambda text: PromptGenerator.generate_prompt_ollama(
@@ -128,6 +128,11 @@ class EmbeddingGenerator:
         """
         model_base_name = self.kwargs.get("model_base_name")
         model_name_version = self.kwargs.get("model_name_version")
-        user_prompt = self.kwargs.get("user_prompt").format(classes=dataset['class'].unique().tolist())
+        
+        system_prompt, user_prompt = get_prompt(self.kwargs.get("prompt_name"))
+        user_prompt = user_prompt.format(classes=dataset['class'].unique().tolist())
+
+        final_prompt = f"{system_prompt}\n{user_prompt}"
+        
         llm2vec_embeddings = LLM2VecEmbeddings(model_base_name=model_base_name, model_name_version=model_name_version)
-        return llm2vec_embeddings.get_embeddings(user_prompt, dataset["text"].tolist())
+        return llm2vec_embeddings.get_embeddings(final_prompt, dataset["text"].tolist())

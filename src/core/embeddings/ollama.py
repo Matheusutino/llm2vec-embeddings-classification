@@ -2,6 +2,7 @@ import ollama
 from tqdm import tqdm
 from src.core.embeddings.base_embeddings import BaseEmbeddings
 from src.core.utils import get_value_by_key_json
+import numpy as np
 
 class OllamaEmbeddings(BaseEmbeddings):
     """Prediction model implementation for Ollama."""
@@ -44,7 +45,7 @@ class OllamaEmbeddings(BaseEmbeddings):
                         'num_ctx': self.num_ctx
                     }
                 )
-                embeddings.append(embedding)
+                embeddings.append(embedding['embeddings'][0])
 
             return embeddings
         except Exception as e:

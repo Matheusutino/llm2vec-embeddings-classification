@@ -12,24 +12,23 @@ def run_all_models(models_path: str, prompt_path : str, datasets_path: str, mode
         for model in model_list:
             for dataset in datasets:
                 for prompt_name, prompt in prompts.items():
-                    print(f"Run model {model}")
+                    # print(f"Run model {embedding_type} - {model}")
                     try:
                         if embedding_type == 'bert':
                             model_name = model['model_name']
                             run_classificator(dataset, embedding_type, model_classifier, cv=cv, model_name=model_name)
-                        elif embedding_type == 'llama_cpp':
-                            repo_id = model['repo_id']
-                            filename = model['filename']
+                        elif embedding_type == 'ollama':
+                            model_name = model['model_name']
                             system_prompt = prompt['system_prompt']
                             user_prompt = prompt['user_prompt']
-                            run_classificator(dataset, embedding_type, model_classifier, cv=cv, repo_id=repo_id, filename=filename, system_prompt=system_prompt, user_prompt=user_prompt, prompt_name=prompt_name)
+                            run_classificator(dataset, embedding_type, model_classifier, cv=cv, model_name=model_name, system_prompt=system_prompt, user_prompt=user_prompt, prompt_name=prompt_name)
                         elif embedding_type == 'llm2vec':
                             model_base_name = model['model_base_name']
                             model_name_version = model['model_name_version']
                             user_prompt = prompt['user_prompt']
                             run_classificator(dataset, embedding_type, model_classifier, cv=cv, model_base_name=model_base_name, model_name_version=model_name_version, user_prompt=user_prompt, prompt_name=prompt_name)
                     except Exception as e:
-                        print(f"Error : {e}")
+                        print(f"Error to process embedding type: {embedding_type}, model: {model}, dataset: {dataset}. Error: {e}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process some parameters for model training.")

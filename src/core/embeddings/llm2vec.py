@@ -17,8 +17,7 @@ class LLM2VecEmbeddings(BaseEmbeddings):
                  model_name_version: str, 
                  device: str = "cuda", 
                  dtype = torch.bfloat16, 
-                 pooling_mode: str = "mean", 
-                 max_length: int = 4096):
+                 pooling_mode: str = "mean"):
         """
         Initialize the model and tokenizer for LLM2Vec.
         """

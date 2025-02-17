@@ -1,17 +1,18 @@
 import argparse
 import time
+import numpy as np
 import pandas as pd
-from sys import getsizeof
 from src.core.embeddings.embedding_generator import EmbeddingGenerator
 from src.core.model_tuning import ModelTuning
-from src.core.utils import create_directory, get_last_element_from_path, replace_character, save_results
+from src.core.utils import check_directory_exists, create_directory, get_last_element_from_path, replace_character, save_results
 
 
 def run_classificator(dataset_path: str, embedding_type: str, model_classifier: str, cv: int, **kwargs):
     dataset_name = get_last_element_from_path(dataset_path)
     
     result_path = f"results/{dataset_name}/{embedding_type}/{replace_character(kwargs.get('model_name') or kwargs.get('repo_id') or kwargs.get('model_name_version'))}{f'/{kwargs.get('prompt_name')}' if embedding_type != 'bert' else ''}/{model_classifier}"
-    create_directory(result_path)
+    embeddings_path = f"{result_path}/embeddings.npy"
+    check_directory_exists(result_path)
 
     dataset = pd.read_csv(dataset_path)
 
@@ -27,10 +28,11 @@ def run_classificator(dataset_path: str, embedding_type: str, model_classifier: 
     model_tuning = ModelTuning(model_name=model_classifier)
     results = model_tuning.tune_hyperparameters(X, y, cv=cv)
 
-    embedding_generation_size = getsizeof(X)
     embedding_generation_time = end_time - start_time
 
-    save_results(result_path, results, embedding_type, embedding_generation_time = embedding_generation_time, embedding_generation_size = embedding_generation_size, system_prompt = kwargs.get("system_prompt"), user_prompt = kwargs.get("user_prompt"))
+    create_directory(result_path)
+    np.save(embeddings_path, X)
+    save_results(result_path, results, embedding_type, embedding_generation_time = embedding_generation_time, system_prompt = kwargs.get("system_prompt"), user_prompt = kwargs.get("user_prompt"))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process some parameters for model training.")

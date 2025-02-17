@@ -1,8 +1,8 @@
 {
-    "mean_fit_time": 0.04023652076721192,
-    "std_fit_time": 0.01600635869718501,
-    "mean_score_time": 1.0274632930755616,
-    "std_score_time": 0.43421990452379317,
+    "mean_fit_time": 0.020142650604248045,
+    "std_fit_time": 0.005693403389693852,
+    "mean_score_time": 0.5976290702819824,
+    "std_score_time": 0.1609304603538954,
     "param_metric": "cosine",
     "param_n_neighbors": 11,
     "param_weights": "distance",
@@ -72,9 +72,7 @@
     "mean_train_f1_score": 1.0,
     "std_train_f1_score": 0.0,
     "rank_train_f1_score": 1,
-    "rank_train_accuracy": 1,
-    "rank_train_recall": 1,
     "rank_train_precision": 1,
-    "embedding_generation_time": 6.791201591491699,
-    "embedding_generation_size": 41472128
+    "rank_train_recall": 1,
+    "rank_train_accuracy": 1
 }

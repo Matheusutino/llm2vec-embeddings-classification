@@ -1,29 +1,35 @@
-Tipo de Modelo,Nome do Modelo,Prompt,Acurácia,Precisão,Recall,F1 Score,Tempo de geração de embeddings
-llm2vec,Meta-Llama-3-8B-Instruct-mntp-supervised,BP,0.898,0.905,0.892,0.896,55.15
-llm2vec,Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,BP,0.894,0.892,0.89,0.89,60.675
-llm2vec,Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,ISP,0.889,0.891,0.886,0.887,117.35
-llm2vec,Meta-Llama-3-8B-Instruct-mntp-supervised,ISP,0.888,0.894,0.882,0.886,137.55
-bert,all-mpnet-base-v2,-,0.885,0.889,0.883,0.885,3.712
-llm2vec,Mistral-7B-Instruct-v2-mntp-unsup-simcse,ISP,0.884,0.886,0.878,0.881,131.128
-bert,all-MiniLM-L12-v2,-,0.881,0.886,0.876,0.879,2.771
-llm2vec,Mistral-7B-Instruct-v2-mntp-supervised,BP,0.882,0.887,0.875,0.879,79.218
-llm2vec,Mistral-7B-Instruct-v2-mntp-supervised,ICP,0.881,0.885,0.876,0.878,237.751
-llm2vec,Meta-Llama-3-8B-Instruct-mntp-unsup-simcse,ICP,0.88,0.885,0.874,0.877,215.68
-llm2vec,Mistral-7B-Instruct-v2-mntp-unsup-simcse,BP,0.88,0.88,0.874,0.876,63.92
-llm2vec,Mistral-7B-Instruct-v2-mntp-supervised,ISP,0.88,0.881,0.875,0.876,133.582
-llm2vec,Mistral-7B-Instruct-v2-mntp-unsup-simcse,ICP,0.88,0.873,0.878,0.875,239.333
-llm2vec,Sheared-LLaMA-mntp-supervised,ISP,0.877,0.884,0.869,0.875,43.592
-llm2vec,Meta-Llama-3-8B-Instruct-mntp-supervised,ICP,0.876,0.883,0.869,0.874,221.729
-bert,all-distilroberta-v1,-,0.872,0.882,0.867,0.873,2.803
-bert,all-MiniLM-L6-v2,-,0.875,0.879,0.869,0.872,2.457
-llm2vec,Sheared-LLaMA-mntp-supervised,BP,0.87,0.882,0.861,0.868,37.344
-llm2vec,Sheared-LLaMA-mntp-supervised,ICP,0.86,0.87,0.849,0.857,67.686
-llm2vec,Sheared-LLaMA-mntp-unsup-simcse,BP,0.849,0.849,0.844,0.845,19.131
-llm2vec,Sheared-LLaMA-mntp-unsup-simcse,ISP,0.846,0.848,0.838,0.841,37.796
-llama_cpp,SanctumAI_gemma-2-9b-it-GGUF,ICP,0.846,0.86,0.829,0.839,411.634
-llama_cpp,SanctumAI_gemma-2-9b-it-GGUF,BP,0.843,0.858,0.827,0.838,398.286
-llm2vec,Sheared-LLaMA-mntp-unsup-simcse,ICP,0.842,0.843,0.832,0.836,64.807
-llama_cpp,SanctumAI_gemma-2-9b-it-GGUF,ISP,0.84,0.852,0.821,0.832,372.732
-llama_cpp,bartowski_aya-expanse-8b-GGUF,ICP,0.042,0.003,0.062,0.005,435.906
-llama_cpp,bartowski_aya-expanse-8b-GGUF,BP,0.042,0.003,0.062,0.005,288.075
-llama_cpp,bartowski_aya-expanse-8b-GGUF,ISP,0.042,0.003,0.062,0.005,381.586
+Model Type,Model Name,Prompt,Accuracy,Precision,Recall,F1
+BERT,All-Distilroberta-V1,-,0.872,0.882,0.867,0.873
+BERT,All-Minilm-L12-V2,-,0.881,0.886,0.876,0.879
+BERT,All-Minilm-L6-V2,-,0.875,0.879,0.869,0.872
+BERT,All-Mpnet-Base-V2,-,0.885,0.889,0.883,0.885
+LLM,Gemma2 - 9B,BP,0.786,0.797,0.766,0.777
+LLM,Gemma2 - 9B,ISP,0.800,0.810,0.782,0.792
+LLM,Gemma2 - 9B,ICP,0.794,0.808,0.772,0.784
+LLM,Qwen 2.5 - 7B,BP,0.784,0.790,0.759,0.769
+LLM,Qwen 2.5 - 7B,ISP,0.802,0.810,0.780,0.789
+LLM,Qwen 2.5 - 7B,ICP,0.781,0.788,0.755,0.766
+LLM,Mistral - 7B,BP,0.750,0.753,0.725,0.735
+LLM,Mistral - 7B,ISP,0.762,0.765,0.739,0.747
+LLM,Mistral - 7B,ICP,0.763,0.773,0.739,0.750
+LLM,Llama 3.2 - 3B,BP,0.723,0.744,0.690,0.706
+LLM,Llama 3.2 - 3B,ISP,0.725,0.730,0.697,0.708
+LLM,Llama 3.2 - 3B,ICP,0.721,0.726,0.697,0.706
+LLM2Vec,Sheared-Llama-1.3B-Unsup-Simcse,BP,0.844,0.843,0.839,0.839
+LLM2Vec,Sheared-Llama-1.3B-Unsup-Simcse,ISP,0.843,0.842,0.835,0.837
+LLM2Vec,Sheared-Llama-1.3B-Unsup-Simcse,ICP,0.841,0.842,0.832,0.835
+LLM2Vec,Sheared-Llama-1.3B-Supervised,BP,0.868,0.873,0.861,0.865
+LLM2Vec,Sheared-Llama-1.3B-Supervised,ISP,0.872,0.878,0.868,0.871
+LLM2Vec,Sheared-Llama-1.3B-Supervised,ICP,0.860,0.868,0.850,0.857
+LLM2Vec,Meta-Llama-3-8B-Instruct-Unsup-Simcse,BP,0.884,0.882,0.880,0.880
+LLM2Vec,Meta-Llama-3-8B-Instruct-Unsup-Simcse,ISP,0.887,0.886,0.883,0.883
+LLM2Vec,Meta-Llama-3-8B-Instruct-Unsup-Simcse,ICP,0.882,0.882,0.877,0.878
+LLM2Vec,Meta-Llama-3-8B-Instruct-Supervised,BP,0.890,0.895,0.886,0.889
+LLM2Vec,Meta-Llama-3-8B-Instruct-Supervised,ISP,0.886,0.892,0.879,0.884
+LLM2Vec,Meta-Llama-3-8B-Instruct-Supervised,ICP,0.878,0.886,0.871,0.876
+LLM2Vec,Mistral-7B-Instruct-V2-Unsup-Simcse,BP,0.867,0.870,0.862,0.865
+LLM2Vec,Mistral-7B-Instruct-V2-Unsup-Simcse,ISP,0.875,0.878,0.870,0.873
+LLM2Vec,Mistral-7B-Instruct-V2-Unsup-Simcse,ICP,0.879,0.873,0.880,0.876
+LLM2Vec,Mistral-7B-Instruct-V2-Supervised,BP,0.878,0.874,0.876,0.873
+LLM2Vec,Mistral-7B-Instruct-V2-Supervised,ISP,0.877,0.886,0.870,0.875
+LLM2Vec,Mistral-7B-Instruct-V2-Supervised,ICP,0.881,0.884,0.875,0.877

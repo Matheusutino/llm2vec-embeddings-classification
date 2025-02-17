@@ -1,8 +1,8 @@
 {
-    "mean_fit_time": 0.0004882335662841797,
-    "std_fit_time": 9.50145630500021e-05,
-    "mean_score_time": 0.0053174495697021484,
-    "std_score_time": 0.0014514052183839062,
+    "mean_fit_time": 0.0004428863525390625,
+    "std_fit_time": 0.00010532830935704915,
+    "mean_score_time": 0.0075947284698486325,
+    "std_score_time": 0.0032336588625668417,
     "param_metric": "manhattan",
     "param_n_neighbors": 10,
     "param_weights": "distance",
@@ -72,9 +72,7 @@
     "mean_train_f1_score": 0.9865286482458157,
     "std_train_f1_score": 0.004859659869576095,
     "rank_train_f1_score": 10,
-    "rank_train_accuracy": 1,
+    "rank_train_precision": 9,
     "rank_train_recall": 10,
-    "rank_train_precision": 1,
-    "embedding_generation_time": 1.7868566513061523,
-    "embedding_generation_size": 459392
+    "rank_train_accuracy": 9
 }
